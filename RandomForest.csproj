@@ -57,7 +57,6 @@
     </ApplicationDefinition>
     <Compile Include="C45.cs" />
     <Compile Include="RandomForest.cs" />
-    <Compile Include="Value.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,7 +65,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Atribute.cs" />
     <Compile Include="DecisionTree.cs" />
     <Compile Include="Leaf.cs" />
     <Compile Include="MainWindow.xaml.cs">

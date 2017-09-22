@@ -48,13 +48,6 @@
       <FileName>Leaf.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RandomForest.Value">
-    <Position X="7.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Value.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="RandomForest.C45">
     <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
@@ -69,12 +62,5 @@
       <FileName>RandomForest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="RandomForest.Atribute">
-    <Position X="5.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Atribute.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
