@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="ExtractSampleButton" Content="Extract training sample" HorizontalAlignment="Left" Margin="46,51,0,0" VerticalAlignment="Top" Width="139" Click="ExtractSampleButton_Click"/>
+        <Label x:Name="statusLabel" Content="Nothing happens..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="155,278,0,0" Width="211"/>
     </Grid>
 </Window>

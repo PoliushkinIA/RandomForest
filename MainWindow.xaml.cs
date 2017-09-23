@@ -24,5 +24,10 @@ namespace RandomForest
         {
             InitializeComponent();
         }
+
+        private void ExtractSampleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
