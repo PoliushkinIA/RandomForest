@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="C45.cs" />
-    <Compile Include="RandomForest.cs" />
+    <Compile Include="RForest.cs" />
     <Compile Include="SampleExtractor.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
