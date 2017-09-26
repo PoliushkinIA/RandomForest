@@ -1,0 +1,19 @@
+Обучающая выборка
+//Подберезовик
+#>
+ClimaticZone:Medium
+Continent:Eurasia
+Landscape:Forest
+Substratum:Earth
+Grouping:Few
+Worminess:PartiallyConsumed
+EarthLevel:On
+Taste:Tasteless
+Oxidation:Purple
+CapStruct:Spongy
+CapShape:Mushroom
+Skirt:DoesntHave
+Slime:DoesntHave
+StipeDensity:Elastic
+Edibility:Yes
+<#

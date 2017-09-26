@@ -18,32 +18,42 @@ namespace RandomForest
 {
     class SampleExtractor
     {
-        Label statusLabel;
-        SampleExtractor(Label inpStatusLabel) {
-           statusLabel = inpStatusLabel;
-        }
-
-        public bool GetSamples(string fileName)
+        List<Sample> ExtractedSamplesList;
+        public string ExtractSamples(string fileName)
         {
             string path;
             int samplesCounter = 0;
-            path = Directory.GetCurrentDirectory() + fileName;
-            
-                try
+            path = Directory.GetCurrentDirectory() + "\\" + fileName;
+            ExtractedSamplesList = new List<Sample>();
+            try
+            {
+                StreamReader sr = new StreamReader(path);
+                string curStr;
+                while (!sr.EndOfStream)
                 {
-                   StreamReader sr = new StreamReader(path) ;
-                    while (!sr.EndOfStream)
+                    sr.ReadLine();
+                    do { curStr = sr.ReadLine(); } while (curStr != "#>");
+                    Sample NewSample = new Sample();
+                    do
                     {
-                        string curStr = sr.ReadLine();
+                        curStr = sr.ReadLine();
+                        if(curStr.IndexOf(':')>0)
+                        NewSample.SetAttribute(curStr.Substring(0,curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':')+1,curStr.Length - curStr.IndexOf(':') - 1));
+                    } while (curStr != "<#");
+                    samplesCounter++;
+                    ExtractedSamplesList.Add(NewSample);
 
-                    }
-                statusLabel.Content = "Trainig samples has succesfully extracted.\nTotal number of trainig samples is " + samplesCounter;
                 }
-                catch
-                {
-                statusLabel.Content = "Error. Check the correctness of the path and file name.";
-                }
-            return true;
-        }    
+                return "Trainig samples has succesfully extracted.\nTotal number of trainig samples is " + samplesCounter;
+            }
+            catch(Exception ex)
+            {
+                return ex.TargetSite+"\n"+ex.Message;
+            }
+        }
+        public List<Sample> ReturnSamples()
+        {
+            return ExtractedSamplesList;
+        }
     }
 }
