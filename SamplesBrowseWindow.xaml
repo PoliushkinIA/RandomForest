@@ -8,7 +8,7 @@
         Title="Samples Browser" Height="345" Width="300">
     <Grid>
         <ComboBox x:Name="SampleComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="262" SelectionChanged="SampleComboBox_SelectionChanged"/>
-        <TextBlock x:Name="SampleTextBlock" HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="262" Height="246" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+        <TextBlock x:Name="SampleTextBlock" Margin="10,48,20,20" TextWrapping="Wrap" Text="TextBlock" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
 
     </Grid>
 </Window>
