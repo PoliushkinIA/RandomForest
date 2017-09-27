@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
         Title="Samples Browser" Height="345" Width="300">
-    <Grid>
-        <ComboBox x:Name="SampleComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="262" SelectionChanged="SampleComboBox_SelectionChanged"/>
-        <TextBlock x:Name="SampleTextBlock" Margin="10,48,20,20" TextWrapping="Wrap" Text="TextBlock" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
-
-    </Grid>
+    <StackPanel>
+        <ComboBox x:Name="SampleComboBox" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Top" SelectionChanged="SampleComboBox_SelectionChanged"/>
+        <TextBlock x:Name="SampleTextBlock" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBlock" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+    </StackPanel>
 </Window>
