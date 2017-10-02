@@ -19,15 +19,13 @@ namespace RandomForest
     class SampleExtractor
     {
         List<Sample> ExtractedSamplesList;
-        public string ExtractSamples(string fileName)
+        public string ExtractSamples(string filePath)
         {
-            string path;
             int samplesCounter = 0;
-            path = Directory.GetCurrentDirectory() + "\\" + fileName;
             ExtractedSamplesList = new List<Sample>();
             try
             {
-                StreamReader sr = new StreamReader(path);
+                StreamReader sr = new StreamReader(filePath);
                 string curStr;
                 while (!sr.EndOfStream)
                 {
@@ -37,10 +35,13 @@ namespace RandomForest
                     do
                     {
                         curStr = sr.ReadLine();
-                        if(curStr.IndexOf(':')>0)
-                        NewSample.SetAttribute(curStr.Substring(0,curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':')+1,curStr.Length - curStr.IndexOf(':') - 1));
+                        if (curStr.IndexOf(':') > 0)
+                            NewSample.SetAttribute(curStr.Substring(0, curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':') + 1, curStr.Length - curStr.IndexOf(':') - 1));
+                        if (curStr.IndexOf('/') >= 0)
+                            NewSample.SetName(curStr.Substring(curStr.LastIndexOf('/')+1, curStr.Length - curStr.LastIndexOf('/') - 1));
                     } while (curStr != "<#");
                     samplesCounter++;
+                    NewSample.SetClassLabel(NewSample.GetAttribute("Edibility"));
                     ExtractedSamplesList.Add(NewSample);
 
                 }

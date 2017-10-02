@@ -7,11 +7,15 @@
         mc:Ignorable="d"
         Title="Random Forest" Height="450" Width="625">
     <Grid>
-        <Button x:Name="ExtractSampleButton" Content="Extract training sample" HorizontalAlignment="Left" Margin="46,51,0,0" VerticalAlignment="Top" Width="139" Click="ExtractSampleButton_Click"/>
-        <TextBlock x:Name="StatusTextBlock" Margin="106,344,119,10" TextWrapping="Wrap" Text="Nothing happens..." Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
-        <TextBox x:Name="FileNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TrainingSamples.txt" VerticalAlignment="Top" Width="139" Margin="46,76,0,0" ToolTip="Enter the  path of the file, you want to extract training samples from"/>
-        <Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="Browse">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="307*"/>
+            <ColumnDefinition Width="310*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="ExtractSampleButton" Content="Extract training sample" Margin="46,51,46,0" VerticalAlignment="Top" Click="ExtractSampleButton_Click"/>
+        <TextBlock x:Name="StatusTextBlock" Margin="106,344,119,10" TextWrapping="Wrap" Text="Nothing happens..." Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FileNameTextBox" Height="56" TextWrapping="Wrap" Text="TrainingSamples.txt" VerticalAlignment="Top" Margin="46,76,46,0" ToolTip="Enter the  path of the file, you want to extract training samples from"/>
+        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <MenuItem Header="Control">
                 <MenuItem x:Name="SamplesMenuItem" Header="Samples" Click="SamplesMunuItemClick" IsEnabled="False"></MenuItem>
             </MenuItem>
             <MenuItem Header="Info" >

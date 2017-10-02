@@ -38,21 +38,23 @@ namespace RandomForest
 
         void OutputSelectedSample()
         {
+            Sample sample = SamplesList[SampleComboBox.SelectedIndex];
             SampleTextBlock.Text = "";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Continent") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Landscape") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Substratum") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Grouping") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Worminess") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("EarthLevel") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Taste") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Oxidation") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("CapStruct") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("CapShape") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Skirt") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Slime") + "\n";
-            SampleTextBlock.Text += SamplesList[SampleComboBox.SelectedIndex].GetAttribute("StipeDensity") + "\n";
-            SampleTextBlock.Text += "Class label: " + SamplesList[SampleComboBox.SelectedIndex].GetAttribute("Edibility") + "\n";
+            SampleTextBlock.Text += "Sample name: " + sample.SampleName + "\n";
+            SampleTextBlock.Text += "  Continent: " + (sample.Atributes.ContainsKey("Continent")? sample.GetAttribute("Continent"):"-") + "\n";
+            SampleTextBlock.Text += "  Landscape: " + (sample.Atributes.ContainsKey("Landscape") ? sample.GetAttribute("Landscape") : "-") + "\n";
+            SampleTextBlock.Text += "  Substratum: "+ (sample.Atributes.ContainsKey("Substratum") ? sample.GetAttribute("Substratum") : "-") + "\n";
+            SampleTextBlock.Text += "  Grouping: " + (sample.Atributes.ContainsKey("Grouping") ? sample.GetAttribute("Grouping") : "-") + "\n";
+            SampleTextBlock.Text += "  Worminess: "+ (sample.Atributes.ContainsKey("Worminess") ? sample.GetAttribute("Worminess") : "-") + "\n";
+            SampleTextBlock.Text += "  EarthLevel: "+ (sample.Atributes.ContainsKey("EarthLevel") ? sample.GetAttribute("EarthLevel") : "-") + "\n";
+            SampleTextBlock.Text += "  Taste: "+ (sample.Atributes.ContainsKey("Taste") ? sample.GetAttribute("Taste") : "-") + "\n";
+            SampleTextBlock.Text += "  Oxidation: "+ (sample.Atributes.ContainsKey("Oxidation") ? sample.GetAttribute("Oxidation") : "-") + "\n";
+            SampleTextBlock.Text += "  CapStruct: " + (sample.Atributes.ContainsKey("CapStruct") ? sample.GetAttribute("CapStruct") : "-") + "\n";
+            SampleTextBlock.Text += "  CapShape: "+ (sample.Atributes.ContainsKey("CapShape") ? sample.GetAttribute("CapShape") : "-") + "\n";
+            SampleTextBlock.Text += "  Skirt: " + (sample.Atributes.ContainsKey("Skirt") ? sample.GetAttribute("Skirt") : "-") + "\n";
+            SampleTextBlock.Text += "  Slime: "+ (sample.Atributes.ContainsKey("Slime") ? sample.GetAttribute("Slime") : "-") + "\n";
+            SampleTextBlock.Text += "  StipeDensity: "+ (sample.Atributes.ContainsKey("StipeDensity") ? sample.GetAttribute("StipeDensity") : "-") + "\n";
+            SampleTextBlock.Text += "An example belongs to the class: " + (sample.ClassLabel == "Yes" ? "Edible" : "Inedible") ;
         }
     }
 }
