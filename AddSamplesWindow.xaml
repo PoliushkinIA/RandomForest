@@ -1,0 +1,26 @@
+﻿<Window x:Class="RandomForest.AddSamplesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandomForest"
+        mc:Ignorable="d"
+        Title="Add samples" Height="695" Width="327" Closing="Window_Closing">
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="480*"/>
+            <RowDefinition Height="141*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="writeToFileButton" Content="Write to the file, conteining training samples." Margin="38,111,38,0" Grid.Row="2" VerticalAlignment="Top" Height="20" Grid.ColumnSpan="2" Click="writeToFileButton_Click"/>
+        <TextBlock x:Name="textBlock" Margin="10,12,10,0" TextWrapping="Wrap" Text="Select desired values below." VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FFB4B4B4" Height="16"/>
+        <TextBox x:Name="sampleNameTextBox" HorizontalAlignment="Left" Height="23" Margin="40,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Sample name" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="2" ToolTip="Enter sample name in this field"/>
+        <TextBox x:Name="filePathTextBox" HorizontalAlignment="Left" Height="68" Margin="40,38,0,0" Grid.Row="2" TextWrapping="Wrap" Text="FilePath" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

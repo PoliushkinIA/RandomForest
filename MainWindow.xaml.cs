@@ -21,7 +21,11 @@ namespace RandomForest
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Sample> TrainigSamples;
+        SamplesContainer TrainingSamples;
+        SamplesContainer TestSamples;
+        public string trainingSFilePath;
+        public string testSFilePath;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,26 +34,41 @@ namespace RandomForest
 
         private void ExtractSampleButton_Click(object sender, RoutedEventArgs e)
         {
-            SampleExtractor SampleExtrInstance = new SampleExtractor();
-            StatusTextBlock.Text = SampleExtrInstance.ExtractSamples(FileNameTextBox.Text);
-            if (StatusTextBlock.Text[0] == 'T')
+            SampleExtractor SampleExtrInstance = new SampleExtractor(this);
+            TrainingSamples = SampleExtrInstance.ExtractSamples(FileNameTextBox.Text);
+            if (TrainingSamples!=null)
             {
-                TrainigSamples = SampleExtrInstance.ReturnSamples();
-                SamplesMenuItem.IsEnabled = true;
+                trainingSFilePath = FileNameTextBox.Text;
+                SamplesBrowseMenuItem.IsEnabled = true;
+                AddSampleMenuItem.IsEnabled = true;
             }
         }
 
 
-        private void SamplesMunuItemClick(object sender, RoutedEventArgs e)
+        private void SamplesBrowseMunuItemClick(object sender, RoutedEventArgs e)
         {
-            SamplesBrowseWindow SBWnd = new SamplesBrowseWindow(TrainigSamples);
+            SamplesBrowseWindow SBWnd = new SamplesBrowseWindow(TrainingSamples);
             SBWnd.Show();
             SBWnd.Owner = this;
+            this.IsEnabled = false;
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AddSampleMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,trainingSFilePath);
+            ASWnd.Show();
+            ASWnd.Owner = this;
+            this.IsEnabled = false;
+        }
+        
+        public void SetStatusText(string text)
+        {
+            StatusTextBlock.Text = text;
         }
     }
 }

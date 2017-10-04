@@ -19,7 +19,13 @@ namespace RandomForest
     class SampleExtractor
     {
         List<Sample> ExtractedSamplesList;
-        public string ExtractSamples(string filePath)
+        MainWindow MWInstatnce;
+
+        public SampleExtractor(MainWindow inpMWInst)
+        {
+            MWInstatnce = inpMWInst;
+        }
+        public SamplesContainer ExtractSamples(string filePath)
         {
             int samplesCounter = 0;
             ExtractedSamplesList = new List<Sample>();
@@ -45,16 +51,21 @@ namespace RandomForest
                     ExtractedSamplesList.Add(NewSample);
 
                 }
-                return "Trainig samples has succesfully extracted.\nTotal number of trainig samples is " + samplesCounter;
+                SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
+                
+                MWInstatnce.SetStatusText("Training Samples succesfully extracted. Number of sumples is " + newSCInstance.SamplesList.Count());
+                return newSCInstance;
             }
             catch(Exception ex)
             {
-                return ex.TargetSite+"\n"+ex.Message;
+                MWInstatnce.SetStatusText(ex.TargetSite+"\n"+ex.Message);
+                return null;
             }
         }
-        public List<Sample> ReturnSamples()
+        public SamplesContainer ReturnSamples()
         {
-            return ExtractedSamplesList;
+            SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
+            return newSCInstance;
         }
     }
 }

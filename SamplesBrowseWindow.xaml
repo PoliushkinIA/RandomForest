@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
-        Title="Samples Browser" Height="386" Width="327">
+        Title="Samples Browser" Height="386" Width="327" Closing="Window_Closing">
     <StackPanel>
         <TextBlock x:Name="headerTextBlock" TextWrapping="Wrap" Text="Select the number of training samples you want to browse." Margin="10,0"/>
         <ComboBox x:Name="SampleComboBox" HorizontalAlignment="Stretch" Margin="10,5" VerticalAlignment="Top" SelectionChanged="SampleComboBox_SelectionChanged"/>

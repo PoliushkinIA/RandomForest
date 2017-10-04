@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddSamplesWindow.xaml.cs">
+      <DependentUpon>AddSamplesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="C45.cs" />
     <Compile Include="RForest.cs" />
     <Compile Include="Sample.cs" />
@@ -77,6 +80,11 @@
     <Compile Include="SamplesBrowseWindow.xaml.cs">
       <DependentUpon>SamplesBrowseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplesContainer.cs" />
+    <Page Include="AddSamplesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
