@@ -6,9 +6,9 @@ using System.Text;
 
 namespace RandomForest
 {
-    public class RandomForest
+    public class RForest
     {
-        public RandomForest()
+        public RForest()
         {
             throw new System.NotImplementedException();
         }

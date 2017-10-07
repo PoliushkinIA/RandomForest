@@ -18,32 +18,54 @@ namespace RandomForest
 {
     class SampleExtractor
     {
-        Label statusLabel;
-        SampleExtractor(Label inpStatusLabel) {
-           statusLabel = inpStatusLabel;
-        }
+        List<Sample> ExtractedSamplesList;
+        MainWindow MWInstatnce;
 
-        public bool GetSamples(string fileName)
+        public SampleExtractor(MainWindow inpMWInst)
         {
-            string path;
+            MWInstatnce = inpMWInst;
+        }
+        public SamplesContainer ExtractSamples(string filePath)
+        {
             int samplesCounter = 0;
-            path = Directory.GetCurrentDirectory() + fileName;
-            
-                try
+            ExtractedSamplesList = new List<Sample>();
+            try
+            {
+                StreamReader sr = new StreamReader(filePath);
+                string curStr;
+                while (!sr.EndOfStream)
                 {
-                   StreamReader sr = new StreamReader(path) ;
-                    while (!sr.EndOfStream)
+                    sr.ReadLine();
+                    do { curStr = sr.ReadLine(); } while (curStr != "#>");
+                    Sample NewSample = new Sample();
+                    do
                     {
-                        string curStr = sr.ReadLine();
+                        curStr = sr.ReadLine();
+                        if (curStr.IndexOf(':') > 0)
+                            NewSample.SetAttribute(curStr.Substring(0, curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':') + 1, curStr.Length - curStr.IndexOf(':') - 1));
+                        if (curStr.IndexOf('/') >= 0)
+                            NewSample.SetName(curStr.Substring(curStr.LastIndexOf('/')+1, curStr.Length - curStr.LastIndexOf('/') - 1));
+                    } while (curStr != "<#");
+                    samplesCounter++;
+                    NewSample.SetClassLabel(NewSample.GetAttribute("Edibility"));
+                    ExtractedSamplesList.Add(NewSample);
 
-                    }
-                statusLabel.Content = "Trainig samples has succesfully extracted.\nTotal number of trainig samples is " + samplesCounter;
                 }
-                catch
-                {
-                statusLabel.Content = "Error. Check the correctness of the path and file name.";
-                }
-            return true;
-        }    
+                SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
+                
+                MWInstatnce.SetStatusText("Training Samples succesfully extracted. Number of sumples is " + newSCInstance.SamplesList.Count());
+                return newSCInstance;
+            }
+            catch(Exception ex)
+            {
+                MWInstatnce.SetStatusText(ex.TargetSite+"\n"+ex.Message);
+                return null;
+            }
+        }
+        public SamplesContainer ReturnSamples()
+        {
+            SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
+            return newSCInstance;
+        }
     }
 }
