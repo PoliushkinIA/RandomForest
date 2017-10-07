@@ -10,7 +10,7 @@
   <Class Name="RandomForest.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAACBAAAAAAAAAABAAAQAAAAAAAEAAAAAAIAAQAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -30,28 +30,28 @@
   <Class Name="RandomForest.DecisionTree">
     <Position X="6.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>DecisionTree.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomForest.Node">
     <Position X="5.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAABAgAAAAAAAAAAAAAAAAAAABCAAAA=</HashCode>
       <FileName>Node.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomForest.Leaf">
     <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Leaf.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomForest.C45">
     <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>C45.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,8 +65,15 @@
   <Class Name="RandomForest.SampleExtractor">
     <Position X="12" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAgBQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SampleExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomForest.SamplesContainer">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>SamplesContainer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -35,7 +35,7 @@ namespace RandomForest
             textBlocksList = new List<TextBlock>();
 
             int left=10, top=10, right=140;
-            foreach (string key in inpTrSCInstance.SamplesDomain.Keys)
+            foreach (string key in inpTrSCInstance.samplesDomain.Keys)
             {
                 ComboBox newCB = new ComboBox();
                 grid.Children.Add(newCB);
@@ -46,7 +46,7 @@ namespace RandomForest
                 newCB.Margin = new Thickness(10,top,0,0);
                 newCB.VerticalAlignment = VerticalAlignment.Top;
                 newCB.HorizontalAlignment = HorizontalAlignment.Left;
-                newCB.ItemsSource = inpTrSCInstance.SamplesDomain[key];
+                newCB.ItemsSource = inpTrSCInstance.samplesDomain[key];
                 newCB.SelectedIndex = 0;
 
                 TextBlock newTB = new TextBlock();
@@ -89,7 +89,7 @@ namespace RandomForest
             newSampleInstance.SetClassLabel(comboBoxesList[comboBoxesList.Count-1].Text);
 
             
-            TrSCInstance.SamplesList.Add(newSampleInstance);
+            TrSCInstance.samplesList.Add(newSampleInstance);
         }
     }
 }

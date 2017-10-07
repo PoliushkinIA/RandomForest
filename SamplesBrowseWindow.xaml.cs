@@ -27,7 +27,7 @@ namespace RandomForest
 
             SCInstance = inpSContainer;
            
-            SampleComboBox.ItemsSource = SCInstance.SamplesList.Select(p => p.SampleName).ToList(); ;
+            SampleComboBox.ItemsSource = SCInstance.samplesList.Select(p => p.SampleName).ToList(); ;
             SampleComboBox.SelectedIndex = 0;
             OutputSelectedSample();
         }
@@ -39,9 +39,9 @@ namespace RandomForest
 
         void OutputSelectedSample()
         {
-            Sample sample = SCInstance.SamplesList[SampleComboBox.SelectedIndex];
+            Sample sample = SCInstance.samplesList[SampleComboBox.SelectedIndex];
             SampleTextBlock.Text = "";
-            foreach (string key in SCInstance.SamplesDomain.Keys)
+            foreach (string key in SCInstance.samplesDomain.Keys)
             {
                 SampleTextBlock.Text += "    "+key+": "+ (sample.Atributes.ContainsKey(key) ? sample.GetAttribute(key) : "-") +"\n";
             }

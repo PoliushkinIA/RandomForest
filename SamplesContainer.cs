@@ -8,31 +8,38 @@ namespace RandomForest
 {
     public class SamplesContainer
     {
-        public Dictionary<string, List<string>> SamplesDomain;
-        public List<Sample> SamplesList;
+        public Dictionary<string, List<string>> samplesDomain;
+        public List<Sample> samplesList;
+        public List<string> classLabels;
 
         public SamplesContainer(List<Sample> inputSamplesList)
         {
-            SamplesList = new List<Sample>();
-            SamplesDomain = new Dictionary<string, List<string>>();
-            SamplesList = inputSamplesList;
+            samplesList = new List<Sample>();
+            samplesDomain = new Dictionary<string, List<string>>();
+            classLabels = new List<string>();
+            samplesList = inputSamplesList;
             CalculateDomain();
         }
 
         public bool CalculateDomain()
         {
-            if (SamplesList.Count == 0) return false;
+            if (samplesList.Count == 0) return false;
             
-            foreach(Sample s in SamplesList)
+            foreach(Sample s in samplesList)
             {
                 foreach (string Key in s.Atributes.Keys)
                 {
-                    if (!SamplesDomain.ContainsKey(Key))
+                    if (!samplesDomain.ContainsKey(Key))
                     {
                         List<string> atrList = new List<string>();
-                        SamplesDomain.Add(Key,atrList);
-                        SamplesDomain[Key].Add(s.Atributes[Key]);
-                    }else if(!SamplesDomain[Key].Contains(s.Atributes[Key])) SamplesDomain[Key].Add(s.Atributes[Key]);
+                        samplesDomain.Add(Key,atrList);
+                        samplesDomain[Key].Add(s.Atributes[Key]);
+                    }else if(!samplesDomain[Key].Contains(s.Atributes[Key])) samplesDomain[Key].Add(s.Atributes[Key]);
+                }
+
+                if (!classLabels.Contains(s.ClassLabel))
+                {
+                    classLabels.Add(s.ClassLabel);
                 }
             }
 

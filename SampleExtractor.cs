@@ -53,7 +53,7 @@ namespace RandomForest
                 }
                 SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
                 
-                MWInstatnce.SetStatusText("Training Samples succesfully extracted. Number of sumples is " + newSCInstance.SamplesList.Count());
+                MWInstatnce.SetStatusText("Training Samples succesfully extracted. Number of sumples is " + newSCInstance.samplesList.Count());
                 return newSCInstance;
             }
             catch(Exception ex)

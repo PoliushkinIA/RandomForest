@@ -7,5 +7,9 @@ namespace RandomForest
 {
     public class DecisionTree
     {
+        public virtual string Decide(Sample sample)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
