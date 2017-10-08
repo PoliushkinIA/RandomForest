@@ -73,7 +73,6 @@
     <Compile Include="AddSamplesWindow.xaml.cs">
       <DependentUpon>AddSamplesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="C45.cs" />
     <Compile Include="RForest.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="SampleExtractor.cs" />
