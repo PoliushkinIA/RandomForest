@@ -22,20 +22,25 @@ namespace RandomForest
     {
         List<TextBlock> textBlocksList;
         List<ComboBox> comboBoxesList;
-        string trainingFilePath;
-        SamplesContainer TrSCInstance;
-        public AddSamplesWindow(SamplesContainer inpTrSCInstance,string inpTrainingFilePath)
+        ComboBox classLabelCB;
+        TextBlock classLabelInfoTB;
+        string filePath;
+        SamplesContainer sCInstance;
+        bool isTrainingSAdding;
+
+        public AddSamplesWindow(SamplesContainer inpSCInstance,string inpFilePath,bool isTraining)
         {
             InitializeComponent();
-            trainingFilePath = inpTrainingFilePath;
-            TrSCInstance = inpTrSCInstance;
-            filePathTextBox.Text = inpTrainingFilePath;
+            filePath = inpFilePath;
+            sCInstance = inpSCInstance;
+            filePathTextBox.Text = inpFilePath;
+            isTrainingSAdding = isTraining;
 
             comboBoxesList = new List<ComboBox>();
             textBlocksList = new List<TextBlock>();
 
             int left=10, top=10, right=140;
-            foreach (string key in inpTrSCInstance.samplesDomain.Keys)
+            foreach (string key in inpSCInstance.samplesDomain.Keys)
             {
                 ComboBox newCB = new ComboBox();
                 grid.Children.Add(newCB);
@@ -46,7 +51,7 @@ namespace RandomForest
                 newCB.Margin = new Thickness(10,top,0,0);
                 newCB.VerticalAlignment = VerticalAlignment.Top;
                 newCB.HorizontalAlignment = HorizontalAlignment.Left;
-                newCB.ItemsSource = inpTrSCInstance.samplesDomain[key];
+                newCB.ItemsSource = inpSCInstance.samplesDomain[key];
                 newCB.SelectedIndex = 0;
 
                 TextBlock newTB = new TextBlock();
@@ -62,6 +67,31 @@ namespace RandomForest
 
                 comboBoxesList.Add(newCB);
                 textBlocksList.Add(newTB);
+            }
+            if (isTraining)
+            {
+                classLabelCB = new ComboBox();
+                grid.Children.Add(classLabelCB);
+                classLabelCB.Width = right - left;
+                classLabelCB.Height = 22;
+                Grid.SetColumn(classLabelCB, 1);
+                Grid.SetRow(classLabelCB, 1);
+                classLabelCB.Margin = new Thickness(10, top, 0, 0);
+                classLabelCB.VerticalAlignment = VerticalAlignment.Top;
+                classLabelCB.HorizontalAlignment = HorizontalAlignment.Left;
+                classLabelCB.ItemsSource = inpSCInstance.classLabels;
+                classLabelCB.SelectedIndex = 0;
+
+                classLabelInfoTB = new TextBlock();
+                grid.Children.Add(classLabelInfoTB);
+                classLabelInfoTB.Width = right - left;
+                classLabelInfoTB.Height = 22;
+                Grid.SetRow(classLabelInfoTB, 1);
+                classLabelInfoTB.Margin = new Thickness(10, top, 0, 0);
+                classLabelInfoTB.VerticalAlignment = VerticalAlignment.Top;
+                classLabelInfoTB.HorizontalAlignment = HorizontalAlignment.Left;
+                classLabelInfoTB.Text = "Select the class label: ";
+                top += 28;
             }
         }
 
@@ -82,14 +112,18 @@ namespace RandomForest
                 newSampleInstance.SetAttribute(textBlocksList[i].Text, comboBoxesList[i].Text);
                 sampleText.Add(textBlocksList[i].Text.Substring(0, textBlocksList[i].Text.IndexOf(' ')) +":"+ comboBoxesList[i].Text + "\n");
             }
+            if (isTrainingSAdding)
+            {
+                sampleText.Add("*" + classLabelCB.SelectedItem + "\n");
+                newSampleInstance.SetClassLabel((string)classLabelCB.SelectedItem);
+            }
             sampleText.Add("<#" + "\n");
-            File.AppendAllLines(trainingFilePath,sampleText);
+            File.AppendAllLines(filePath,sampleText);
 
             newSampleInstance.SetName(sampleNameTextBox.Text);
             newSampleInstance.SetClassLabel(comboBoxesList[comboBoxesList.Count-1].Text);
-
             
-            TrSCInstance.samplesList.Add(newSampleInstance);
+            sCInstance.samplesList.Add(newSampleInstance);
         }
     }
 }

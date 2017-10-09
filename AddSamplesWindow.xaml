@@ -17,10 +17,10 @@
             <RowDefinition Height="141*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="writeToFileButton" Content="Write to the file, conteining training samples." Margin="38,111,38,0" Grid.Row="2" VerticalAlignment="Top" Height="20" Grid.ColumnSpan="2" Click="writeToFileButton_Click"/>
-        <TextBlock x:Name="textBlock" Margin="10,12,10,0" TextWrapping="Wrap" Text="Select desired values below." VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FFB4B4B4" Height="16"/>
-        <TextBox x:Name="sampleNameTextBox" Height="23" Margin="40,10,38,0" Grid.Row="2" TextWrapping="Wrap" Text="Sample name" VerticalAlignment="Top" Grid.ColumnSpan="2" ToolTip="Enter sample name in this field"/>
-        <TextBox x:Name="filePathTextBox" Height="68" Margin="40,38,38,0" Grid.Row="2" TextWrapping="Wrap" Text="FilePath" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="writeToFileButton" Content="Write to the file, conteining training samples." Margin="38,111,38,0" Grid.Row="2" VerticalAlignment="Top" Height="20" Grid.ColumnSpan="2" Click="writeToFileButton_Click" Background="#FFFFDAF2"/>
+        <TextBlock x:Name="textBlock" Margin="10,12,10,0" TextWrapping="Wrap" Text="Select desired values below." VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FFDAF2FF" Height="16"/>
+        <TextBox x:Name="sampleNameTextBox" Height="23" Margin="40,10,38,0" Grid.Row="2" TextWrapping="Wrap" Text="Sample name" VerticalAlignment="Top" Grid.ColumnSpan="2" ToolTip="Enter sample name in this field" Background="#FFDAF2FF"/>
+        <TextBox x:Name="filePathTextBox" Height="68" Margin="40,38,38,0" Grid.Row="2" TextWrapping="Wrap" Text="FilePath" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FFDAF2FF"/>
 
     </Grid>
 </Window>

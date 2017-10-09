@@ -58,7 +58,7 @@ namespace RandomForest
 
         private void AddSampleMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,trainingSFilePath);
+            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,trainingSFilePath,true);
             ASWnd.Show();
             ASWnd.Owner = this;
             this.IsEnabled = false;
@@ -81,7 +81,10 @@ namespace RandomForest
 
         private void LoadTestSamplesManuallyMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples, testSFilePath,false);
+            ASWnd.Show();
+            ASWnd.Owner = this;
+            this.IsEnabled = false;
         }
 
         private void BrowseTestSamplesMenuItem_Click(object sender, RoutedEventArgs e)

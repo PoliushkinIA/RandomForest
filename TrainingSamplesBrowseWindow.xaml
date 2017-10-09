@@ -9,6 +9,6 @@
     <StackPanel>
         <TextBlock x:Name="headerTextBlock" TextWrapping="Wrap" Text="Select the sample you want to browse." Margin="10,0"/>
         <ComboBox x:Name="SampleComboBox" HorizontalAlignment="Stretch" Margin="10,5" VerticalAlignment="Top" SelectionChanged="SampleComboBox_SelectionChanged"/>
-        <TextBlock x:Name="SampleTextBlock" Margin="10,5" VerticalAlignment="Stretch" TextWrapping="Wrap" Text="TextBlock" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+        <TextBlock x:Name="SampleTextBlock" Margin="10,5" VerticalAlignment="Stretch" TextWrapping="Wrap" Text="TextBlock" Background="#FFDAF2FF"/>
     </StackPanel>
 </Window>

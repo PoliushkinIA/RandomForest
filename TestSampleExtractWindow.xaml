@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Test samples uploader" Height="181.395" Width="300" Closing="Window_Closing">
     <Grid>
-        <Button x:Name="extractSamplesButton" Content="Extract samples" Margin="10,10,10,0" VerticalAlignment="Top" Click="extractSamplesButton_Click"/>
+        <Button x:Name="extractSamplesButton" Content="Extract samples" Margin="10,10,10,0" VerticalAlignment="Top" Click="extractSamplesButton_Click" Background="#FFFFDAF2"/>
         <TextBox x:Name="samplesFilePathTextBox" Height="56" Margin="10,35,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBlock x:Name="statusTextBlock" Margin="10,96,10,0" TextWrapping="Wrap" Text="Input correct path to the file, containing test samples. Then press &quot;Extract samples&quot; button." VerticalAlignment="Top" Height="44" Background="#FFCDCDCD"/>
+        <TextBlock x:Name="statusTextBlock" Margin="10,96,10,10" TextWrapping="Wrap" Text="Input correct path to the file, containing test samples. Then press &quot;Extract samples&quot; button." Background="#FFDAF2FF"/>
 
     </Grid>
 </Window>
