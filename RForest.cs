@@ -70,7 +70,7 @@ namespace RandomForest
                 if (subset.Count() == 0)
                 {
                     // If subset for this value is empty the subtree is a leaf with classmark of most examples in our set
-                    node.AddBranch(value, new Leaf(subset.GroupBy(p => p.ClassLabel).Where(p => p.Count() == subset.GroupBy(q => q.ClassLabel).Max(r => r.Count())).First().First().ClassLabel));
+                    node.AddBranch(value, new Leaf(samples.samplesList.GroupBy(p => p.ClassLabel).Where(p => p.Count() == samples.samplesList.GroupBy(q => q.ClassLabel).Max(r => r.Count())).First().First().ClassLabel));
                 }
                 else
                 {
