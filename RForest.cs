@@ -86,7 +86,7 @@ namespace RandomForest
             double info = 0;
             foreach (string c in samples.classLabels)
             {
-                double p = samples.samplesList.Where(q => q.ClassLabel.Equals(c)).Count() / samples.samplesList.Count();
+                double p = (double)samples.samplesList.Where(q => q.ClassLabel.Equals(c)).Count() / samples.samplesList.Count();
                 info -= p * Math.Log(p, 2);
             }
             return info;

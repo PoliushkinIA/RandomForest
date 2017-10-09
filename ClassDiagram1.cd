@@ -10,7 +10,7 @@
   <Class Name="RandomForest.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAACBAAAAAAAAAABAAAQAAAAAAAEAAAAAAIAAQAAA=</HashCode>
+      <HashCode>AAIAACBAAAAAABAAABAAAQAoAAAAAEAAAAAAIAAQAgA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -51,14 +51,21 @@
   <Class Name="RandomForest.RForest">
     <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAA=</HashCode>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAA=</HashCode>
       <FileName>RForest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomForest.SampleExtractor">
     <Position X="12" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="RandomForest.SampleExtractor.SetStatusDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SampleExtractor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgBQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAABAAgBQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SampleExtractor.cs</FileName>
     </TypeIdentifier>
   </Class>
