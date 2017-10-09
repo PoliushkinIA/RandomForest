@@ -75,7 +75,9 @@ namespace RandomForest
                 else
                 {
                     // Otherwise recursively create a subtree for a subset
-                    node.AddBranch(value, TreeInduction(new SamplesContainer(subset)));
+                    SamplesContainer subsetContainer = new SamplesContainer(subset);
+                    subsetContainer.samplesDomain = samples.samplesDomain;
+                    node.AddBranch(value, TreeInduction(subsetContainer));
                 }
             }
             return node;
