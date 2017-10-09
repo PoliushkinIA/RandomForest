@@ -1,0 +1,18 @@
+﻿<Window x:Class="RandomForest.DecisionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandomForest"
+        mc:Ignorable="d"
+        Title="DecisionWindow" Height="300" Width="300" Closing="Window_Closing">
+    <Grid>
+        <ComboBox x:Name="sampleComboBox" Margin="10,31,10,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="infoTextBlock" Margin="10,10,10,0" TextWrapping="Wrap" Text="Select a questionable mushroom below." VerticalAlignment="Top" Background="#FFDDDDDD"/>
+        <TextBlock x:Name="processingStatusTextBlock" Margin="10,108,10,10" TextWrapping="Wrap" Text="The forest awaits instructions." Background="#FFDDDDDD"/>
+        <Button x:Name="processDecisionButton" Content="Ask the forest to make a decision" Margin="10,83,10,0" VerticalAlignment="Top" Click="processDecisionButton_Click"/>
+        <TextBox x:Name="treesNumTextBox" HorizontalAlignment="Left" Height="20" Margin="244,58,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="38"/>
+        <TextBlock x:Name="info1TextBlock" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Background="#FFDDDDDD" Text="Enter the number of trees in the forest:" Height="20"/>
+
+    </Grid>
+</Window>

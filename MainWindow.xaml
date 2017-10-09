@@ -7,19 +7,23 @@
         mc:Ignorable="d"
         Title="Random Forest" Height="450" Width="625">
     <Grid>
-        
+
         <Button x:Name="ExtractSampleButton" Content="Extract training sample" Margin="46,51,46,0" VerticalAlignment="Top" Click="ExtractSampleButton_Click"/>
         <TextBlock x:Name="StatusTextBlock" Margin="106,344,119,10" TextWrapping="Wrap" Text="Nothing happens..." Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Grid.ColumnSpan="2"/>
         <TextBox x:Name="FileNameTextBox" Height="56" TextWrapping="Wrap" Text="TrainingSamples.txt" VerticalAlignment="Top" Margin="46,76,46,0" ToolTip="Enter the  path of the file, you want to extract training samples from"/>
         <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <MenuItem Header="Control">
-                <MenuItem x:Name="SamplesBrowseMenuItem" Header="Samples browse" Click="SamplesBrowseMunuItemClick" IsEnabled="False"></MenuItem>
+            <MenuItem Header="Training sample">
+                <MenuItem x:Name="SamplesBrowseMenuItem" Header="Browse" Click="SamplesBrowseMunuItemClick" IsEnabled="False"></MenuItem>
                 <MenuItem x:Name="AddSampleMenuItem" Header="Add sample" IsEnabled="False" Click="AddSampleMenuItem_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Info" >
-                <MenuItem x:Name="AboutMenuItem" Header="About" Click="AboutMenuItem_Click"  IsEnabled="True"></MenuItem>
+            <MenuItem Header="Test sample">
+                <MenuItem x:Name="LoadTestSampleFromFileMenuItem" Header="Extract from file" IsEnabled="False" Click="LoadTestSampleFromFileMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="LoadTestSamplesManuallyMenuItem" Header="Add manually" IsEnabled="False" Click="LoadTestSamplesManuallyMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="BrowseTestSamplesMenuItem" Header="Browse" IsEnabled="False" Click="BrowseTestSamplesMenuItem_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="View" ></MenuItem>
+            <MenuItem Header="Results" >
+                <MenuItem x:Name="VerdictMenuItem" Header="Verdict" IsEnabled="False" Click="VerdictMenuItem_Click"></MenuItem>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

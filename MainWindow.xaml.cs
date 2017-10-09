@@ -22,7 +22,7 @@ namespace RandomForest
     public partial class MainWindow : Window
     {
         SamplesContainer TrainingSamples;
-        SamplesContainer TestSamples;
+        public SamplesContainer TestSamples;
         public string trainingSFilePath;
         public string testSFilePath;
 
@@ -34,13 +34,15 @@ namespace RandomForest
 
         private void ExtractSampleButton_Click(object sender, RoutedEventArgs e)
         {
-            SampleExtractor SampleExtrInstance = new SampleExtractor(this);
+            SampleExtractor SampleExtrInstance = new SampleExtractor(SetStatusText,true);
             TrainingSamples = SampleExtrInstance.ExtractSamples(FileNameTextBox.Text);
             if (TrainingSamples!=null)
             {
                 trainingSFilePath = FileNameTextBox.Text;
                 SamplesBrowseMenuItem.IsEnabled = true;
                 AddSampleMenuItem.IsEnabled = true;
+                LoadTestSampleFromFileMenuItem.IsEnabled = true;
+                LoadTestSamplesManuallyMenuItem.IsEnabled = true;
             }
         }
 
@@ -52,11 +54,7 @@ namespace RandomForest
             SBWnd.Owner = this;
             this.IsEnabled = false;
         }
-
-        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void AddSampleMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -69,6 +67,37 @@ namespace RandomForest
         public void SetStatusText(string text)
         {
             StatusTextBlock.Text = text;
+        }
+
+        private void LoadTestSampleFromFileMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            TestSampleExtractWindow TSEWnd = new TestSampleExtractWindow();
+            TSEWnd.Show();
+            TSEWnd.Owner = this;
+            this.IsEnabled = false;
+            
+
+        }
+
+        private void LoadTestSamplesManuallyMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BrowseTestSamplesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SamplesBrowseWindow SBWnd = new SamplesBrowseWindow(TestSamples);
+            SBWnd.Show();
+            SBWnd.Owner = this;
+            this.IsEnabled = false;
+        }
+
+        private void VerdictMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DecisionWindow DWnd = new DecisionWindow(TrainingSamples,TestSamples);
+            DWnd.Show();
+            DWnd.Owner = this;
+            this.IsEnabled = false;
         }
     }
 }

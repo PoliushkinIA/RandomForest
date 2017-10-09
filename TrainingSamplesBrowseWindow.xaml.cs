@@ -45,6 +45,7 @@ namespace RandomForest
             {
                 SampleTextBlock.Text += "    "+key+": "+ (sample.Atributes.ContainsKey(key) ? sample.GetAttribute(key) : "-") +"\n";
             }
+            if(sample.ClassLabel!=null)
             SampleTextBlock.Text += "An example belongs to the class: " + (sample.ClassLabel == "Yes" ? "Edible" : "Inedible");
         }
 

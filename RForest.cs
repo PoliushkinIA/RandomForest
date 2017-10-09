@@ -8,7 +8,7 @@ namespace RandomForest
 {
     public class RForest
     {
-        List<DecisionTree> trees;
+        public List<DecisionTree> trees;
 
         public RForest(SamplesContainer samples, int treeCount)
         {

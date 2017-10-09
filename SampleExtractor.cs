@@ -19,11 +19,14 @@ namespace RandomForest
     class SampleExtractor
     {
         List<Sample> ExtractedSamplesList;
-        MainWindow MWInstatnce;
-
-        public SampleExtractor(MainWindow inpMWInst)
+       public delegate void SetStatusDelegate(string message);
+        SetStatusDelegate sSDInstance;
+        Window WInstatnce;
+        bool needNotification;
+        public SampleExtractor(SetStatusDelegate sSDInputInstatnce,bool allowNotification)
         {
-            MWInstatnce = inpMWInst;
+            sSDInstance = sSDInputInstatnce;
+            needNotification = allowNotification;
         }
         public SamplesContainer ExtractSamples(string filePath)
         {
@@ -47,18 +50,21 @@ namespace RandomForest
                             NewSample.SetName(curStr.Substring(curStr.LastIndexOf('/')+1, curStr.Length - curStr.LastIndexOf('/') - 1));
                     } while (curStr != "<#");
                     samplesCounter++;
+                    if(NewSample.Atributes.ContainsKey("Edibility"))
                     NewSample.SetClassLabel(NewSample.GetAttribute("Edibility"));
                     ExtractedSamplesList.Add(NewSample);
 
                 }
                 SamplesContainer newSCInstance = new SamplesContainer(ExtractedSamplesList);
                 
-                MWInstatnce.SetStatusText("Training Samples succesfully extracted. Number of sumples is " + newSCInstance.samplesList.Count());
+                if(needNotification)
+                
+                sSDInstance("Samples succesfully extracted. Number of sumples is " + newSCInstance.samplesList.Count()+".");
                 return newSCInstance;
             }
             catch(Exception ex)
             {
-                MWInstatnce.SetStatusText(ex.TargetSite+"\n"+ex.Message);
+                sSDInstance(ex.TargetSite+"\n"+ex.Message);
                 return null;
             }
         }

@@ -73,14 +73,28 @@
     <Compile Include="AddSamplesWindow.xaml.cs">
       <DependentUpon>AddSamplesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DecisionWindow.xaml.cs">
+      <DependentUpon>DecisionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestSampleExtractWindow.xaml.cs">
+      <DependentUpon>TestSampleExtractWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RForest.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="SampleExtractor.cs" />
-    <Compile Include="SamplesBrowseWindow.xaml.cs">
-      <DependentUpon>SamplesBrowseWindow.xaml</DependentUpon>
+    <Compile Include="TrainingSamplesBrowseWindow.xaml.cs">
+      <DependentUpon>TrainingSamplesBrowseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SamplesContainer.cs" />
     <Page Include="AddSamplesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DecisionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestSampleExtractWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,7 +112,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SamplesBrowseWindow.xaml">
+    <Page Include="TrainingSamplesBrowseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
