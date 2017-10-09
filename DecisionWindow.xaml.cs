@@ -33,8 +33,8 @@ namespace RandomForest
         private void processDecisionButton_Click(object sender, RoutedEventArgs e)
         {
             List<string> treesDecisions = new List<string>();
-            try
-            {
+//            try
+//            {
                 RForest RForestInstance = new RForest(TrainingSamples, Convert.ToInt32(treesNumTextBox.Text));
                 processingStatusTextBlock.Text = "";
                 foreach (DecisionTree tree in RForestInstance.trees)
@@ -46,11 +46,11 @@ namespace RandomForest
                     processingStatusTextBlock.Text += classLabel + " - " + ((float)(treesDecisions.Where(p => p == classLabel).ToList().Count) / (float)(treesDecisions.Count)).ToString() + "\n";
                 }
 
-            }
-            catch (Exception ex)
-            {
-                processingStatusTextBlock.Text = (ex.TargetSite + "\n" + ex.Message);
-            }
+ //           }
+//            catch (Exception ex)
+//            {
+//                processingStatusTextBlock.Text = (ex.TargetSite + "\n" + ex.Message);
+ //           }
 
         }
 
