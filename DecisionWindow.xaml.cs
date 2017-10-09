@@ -36,15 +36,22 @@ namespace RandomForest
             try
             {
                 RForest RForestInstance = new RForest(TrainingSamples, Convert.ToInt32(treesNumTextBox.Text));
-                foreach(DecisionTree tree in RForestInstance.trees)
+                processingStatusTextBlock.Text = "";
+                foreach (DecisionTree tree in RForestInstance.trees)
                 {
                     treesDecisions.Add(tree.Decide(TestSamples.samplesList[sampleComboBox.SelectedIndex]));
                 }
+                foreach (string classLabel in TrainingSamples.classLabels)
+                {
+                    processingStatusTextBlock.Text += classLabel + " - " + ((float)(treesDecisions.Where(p => p == classLabel).ToList().Count) / (float)(treesDecisions.Count)).ToString() + "\n";
+                }
+
             }
             catch (Exception ex)
             {
-                processingStatusTextBlock.Text=(ex.TargetSite + "\n" + ex.Message);
+                processingStatusTextBlock.Text = (ex.TargetSite + "\n" + ex.Message);
             }
+
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -21,7 +21,6 @@ namespace RandomForest
         List<Sample> ExtractedSamplesList;
        public delegate void SetStatusDelegate(string message);
         SetStatusDelegate sSDInstance;
-        Window WInstatnce;
         bool needNotification;
         public SampleExtractor(SetStatusDelegate sSDInputInstatnce,bool allowNotification)
         {
@@ -45,13 +44,20 @@ namespace RandomForest
                     {
                         curStr = sr.ReadLine();
                         if (curStr.IndexOf(':') > 0)
+                        {
                             NewSample.SetAttribute(curStr.Substring(0, curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':') + 1, curStr.Length - curStr.IndexOf(':') - 1));
-                        if (curStr.IndexOf('/') >= 0)
+                            continue;
+                        }
+                        if (curStr[0]=='*')
+                        {
+                            string curSubStr = curStr.Substring(1, curStr.Length - 1);
+                            NewSample.SetClassLabel(curSubStr);
+                            continue;
+                        }
+                        if (curStr.IndexOf('/') >= 0) 
                             NewSample.SetName(curStr.Substring(curStr.LastIndexOf('/')+1, curStr.Length - curStr.LastIndexOf('/') - 1));
                     } while (curStr != "<#");
                     samplesCounter++;
-                    if(NewSample.Atributes.ContainsKey("Edibility"))
-                    NewSample.SetClassLabel(NewSample.GetAttribute("Edibility"));
                     ExtractedSamplesList.Add(NewSample);
 
                 }

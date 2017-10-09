@@ -35,12 +35,8 @@ namespace RandomForest
         }
         public bool SetClassLabel(string Class)
         {
-            if (Class == "Yes" || Class == "No")
-            {
                 ClassLabel = Class;
                 return true;
-            }
-            else return false;
         }
         public string GetAttribute(string Key)
         {
