@@ -13,6 +13,7 @@ namespace RandomForest
         public Node(string attribute)
         {
             this.attribute = attribute;
+            branches = new Dictionary<string, DecisionTree>();
         }
 
         public string Attribute
