@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
-        Title="DecisionWindow" Height="300" Width="300" Closing="Window_Closing">
+        Title="DecisionWindow" Height="300" Width="300" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <ComboBox x:Name="sampleComboBox" Margin="10,31,10,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="infoTextBlock" Margin="10,10,10,0" TextWrapping="Wrap" Text="Select a questionable mushroom below." VerticalAlignment="Top" Background="#FFDAF2FF"/>
-        <TextBlock x:Name="processingStatusTextBlock" Margin="10,108,10,10" TextWrapping="Wrap" Text="The forest awaits instructions." Background="#FFDAF2FF"/>
-        <Button x:Name="processDecisionButton" Content="Ask the forest to make a decision" Margin="10,83,10,0" VerticalAlignment="Top" Click="processDecisionButton_Click" Background="#FFFFDAF2"/>
-        <TextBox x:Name="treesNumTextBox" HorizontalAlignment="Left" Height="20" Margin="244,58,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="38"/>
+        <TextBlock x:Name="processingStatusTextBlock" Margin="10,159,10,10" TextWrapping="Wrap" Text="First you need to grow a forest." Background="#FFDAF2FF"/>
+        <Button x:Name="processDecisionButton" IsEnabled="False" Content="Ask the forest to make a decision" Margin="10,109,10,0" VerticalAlignment="Top" Click="processDecisionButton_Click" Background="#FFFFDAF2"/>
+        <TextBox x:Name="treesNumTextBox" Height="20" Margin="244,58,10,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top"/>
         <TextBlock x:Name="info1TextBlock" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Background="#FFDAF2FF" Text="Enter the number of trees in the forest:" Height="20"/>
+        <Button x:Name="buildAFrorestButton" Content="Grow a forrest" Margin="10,84,10,0" VerticalAlignment="Top" Background="#FFFFDAF2" Click="buildAFrorestButton_Click"/>
+        <Button x:Name="extendedAnalysisButton" IsEnabled="False" Content="Extended analysis" Margin="10,134,10,0" VerticalAlignment="Top" Click="extendedAnalysisButton_Click"/>
 
     </Grid>
 </Window>

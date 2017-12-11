@@ -28,19 +28,19 @@ namespace RandomForest
         SamplesContainer sCInstance;
         bool isTrainingSAdding;
 
-        public AddSamplesWindow(SamplesContainer inpSCInstance,string inpFilePath,bool isTraining)
+        public AddSamplesWindow(SamplesContainer domainSC,SamplesContainer targetSCInstance,string updateFilePath,bool isTraining)
         {
             InitializeComponent();
-            filePath = inpFilePath;
-            sCInstance = inpSCInstance;
-            filePathTextBox.Text = inpFilePath;
+            filePath = updateFilePath;
+            sCInstance = targetSCInstance;
+            filePathTextBox.Text = updateFilePath;
             isTrainingSAdding = isTraining;
 
             comboBoxesList = new List<ComboBox>();
             textBlocksList = new List<TextBlock>();
 
             int left=10, top=10, right=140;
-            foreach (string key in inpSCInstance.samplesDomain.Keys)
+            foreach (string key in domainSC.samplesDomain.Keys)
             {
                 ComboBox newCB = new ComboBox();
                 grid.Children.Add(newCB);
@@ -51,7 +51,7 @@ namespace RandomForest
                 newCB.Margin = new Thickness(10,top,0,0);
                 newCB.VerticalAlignment = VerticalAlignment.Top;
                 newCB.HorizontalAlignment = HorizontalAlignment.Left;
-                newCB.ItemsSource = inpSCInstance.samplesDomain[key];
+                newCB.ItemsSource = domainSC.samplesDomain[key];
                 newCB.SelectedIndex = 0;
 
                 TextBlock newTB = new TextBlock();
@@ -79,7 +79,7 @@ namespace RandomForest
                 classLabelCB.Margin = new Thickness(10, top, 0, 0);
                 classLabelCB.VerticalAlignment = VerticalAlignment.Top;
                 classLabelCB.HorizontalAlignment = HorizontalAlignment.Left;
-                classLabelCB.ItemsSource = inpSCInstance.classLabels;
+                classLabelCB.ItemsSource = domainSC.classLabels;
                 classLabelCB.SelectedIndex = 0;
 
                 classLabelInfoTB = new TextBlock();
@@ -118,7 +118,14 @@ namespace RandomForest
                 newSampleInstance.SetClassLabel((string)classLabelCB.SelectedItem);
             }
             sampleText.Add("<#" + "\n");
-            File.AppendAllLines(filePath,sampleText);
+            try
+            {
+                File.AppendAllLines(filePath, sampleText);
+            }
+            catch
+            {
+                filePathTextBox.Text = "Error is occered due the file writning attempt";
+            }
 
             newSampleInstance.SetName(sampleNameTextBox.Text);
             newSampleInstance.SetClassLabel(comboBoxesList[comboBoxesList.Count-1].Text);

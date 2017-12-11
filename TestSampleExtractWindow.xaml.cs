@@ -34,10 +34,12 @@ namespace RandomForest
         private void extractSamplesButton_Click(object sender, RoutedEventArgs e)
         {
             SampleExtractor SampleExtrInstance = new SampleExtractor(SetStatus,true);
+            
             ((MainWindow)this.Owner).TestSamples = SampleExtrInstance.ExtractSamples(samplesFilePathTextBox.Text);
             if (((MainWindow)this.Owner).TestSamples != null)
             {
                 ((MainWindow)this.Owner).BrowseTestSamplesMenuItem.IsEnabled = true;
+                ((MainWindow)this.Owner).LoadTestSamplesManuallyMenuItem.IsEnabled = true;
                 ((MainWindow)this.Owner).VerdictMenuItem.IsEnabled = true;
             }
         }

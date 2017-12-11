@@ -43,6 +43,7 @@ namespace RandomForest
                     do
                     {
                         curStr = sr.ReadLine();
+                    if (curStr == "") continue;
                         if (curStr.IndexOf(':') > 0)
                         {
                             NewSample.SetAttribute(curStr.Substring(0, curStr.IndexOf(':')), curStr.Substring(curStr.IndexOf(':') + 1, curStr.Length - curStr.IndexOf(':') - 1));

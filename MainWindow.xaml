@@ -14,7 +14,7 @@
         <Menu Height="19" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Training sample">
                 <MenuItem x:Name="SamplesBrowseMenuItem" Header="Browse" Click="SamplesBrowseMunuItemClick" IsEnabled="False"></MenuItem>
-                <MenuItem x:Name="AddSampleMenuItem" Header="Add sample" IsEnabled="False" Click="AddSampleMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="AddTrainingSampleMenuItem" Header="Add sample" IsEnabled="False" Click="AddSampleMenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Test sample">
                 <MenuItem x:Name="LoadTestSampleFromFileMenuItem" Header="Extract from file" IsEnabled="False" Click="LoadTestSampleFromFileMenuItem_Click"></MenuItem>
