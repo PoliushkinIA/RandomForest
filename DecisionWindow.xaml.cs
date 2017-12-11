@@ -19,9 +19,10 @@ namespace RandomForest
     /// </summary>
     public partial class DecisionWindow : Window
     {
-        SamplesContainer TrainingSamples; 
+        SamplesContainer TrainingSamples;
         SamplesContainer TestSamples;
-        public DecisionWindow(SamplesContainer TrainingSamples,SamplesContainer TestSamples)
+        RForest RForestInstance;
+        public DecisionWindow(SamplesContainer TrainingSamples, SamplesContainer TestSamples)
         {
             InitializeComponent();
             sampleComboBox.ItemsSource = TestSamples.samplesList.Select(p => p.SampleName).ToList();
@@ -33,9 +34,9 @@ namespace RandomForest
         private void processDecisionButton_Click(object sender, RoutedEventArgs e)
         {
             List<string> treesDecisions = new List<string>();
-//            try
-//            {
-                RForest RForestInstance = new RForest(TrainingSamples, Convert.ToInt32(treesNumTextBox.Text));
+            try
+            {
+                
                 processingStatusTextBlock.Text = "";
                 foreach (DecisionTree tree in RForestInstance.trees)
                 {
@@ -46,17 +47,33 @@ namespace RandomForest
                     processingStatusTextBlock.Text += classLabel + " - " + ((float)(treesDecisions.Where(p => p == classLabel).ToList().Count) / (float)(treesDecisions.Count)).ToString() + "\n";
                 }
 
- //           }
-//            catch (Exception ex)
-//            {
-//                processingStatusTextBlock.Text = (ex.TargetSite + "\n" + ex.Message);
- //           }
+            }
+            catch (Exception ex)
+            {
+                processingStatusTextBlock.Text = (ex.TargetSite + "\n" + ex.Message);
+            }
 
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.Owner.IsEnabled = true;
+        }
+
+        private void buildAFrorestButton_Click(object sender, RoutedEventArgs e)
+        {
+            RForestInstance = new RForest(TrainingSamples, Convert.ToInt32(treesNumTextBox.Text));
+            processingStatusTextBlock.Text = "The forest awaits instructions.";
+            processDecisionButton.IsEnabled = true;
+            extendedAnalysisButton.IsEnabled = true;
+        }
+
+        private void extendedAnalysisButton_Click(object sender, RoutedEventArgs e)
+        {
+            AnalysisWindow analysisWndInstance = new AnalysisWindow(RForestInstance);
+            analysisWndInstance.Owner = this;
+            analysisWndInstance.Show();
+            this.IsEnabled = false;
         }
     }
 }

@@ -73,6 +73,9 @@
     <Compile Include="AddSamplesWindow.xaml.cs">
       <DependentUpon>AddSamplesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnalysisWindow.xaml.cs">
+      <DependentUpon>AnalysisWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DecisionWindow.xaml.cs">
       <DependentUpon>DecisionWindow.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
     </Compile>
     <Compile Include="SamplesContainer.cs" />
     <Page Include="AddSamplesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AnalysisWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

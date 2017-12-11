@@ -30,6 +30,7 @@ namespace RandomForest
         {
             InitializeComponent();
             FileNameTextBox.Text = Directory.GetCurrentDirectory() + "\\TrainingSamples.txt";
+            testSFilePath = Directory.GetCurrentDirectory() + "\\TestSamples.txt";
         }
 
         private void ExtractSampleButton_Click(object sender, RoutedEventArgs e)
@@ -40,9 +41,8 @@ namespace RandomForest
             {
                 trainingSFilePath = FileNameTextBox.Text;
                 SamplesBrowseMenuItem.IsEnabled = true;
-                AddSampleMenuItem.IsEnabled = true;
+                AddTrainingSampleMenuItem.IsEnabled = true;
                 LoadTestSampleFromFileMenuItem.IsEnabled = true;
-                LoadTestSamplesManuallyMenuItem.IsEnabled = true;
             }
         }
 
@@ -58,7 +58,7 @@ namespace RandomForest
 
         private void AddSampleMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,trainingSFilePath,true);
+            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,TrainingSamples,trainingSFilePath,true);
             ASWnd.Show();
             ASWnd.Owner = this;
             this.IsEnabled = false;
@@ -81,7 +81,7 @@ namespace RandomForest
 
         private void LoadTestSamplesManuallyMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples, testSFilePath,false);
+            AddSamplesWindow ASWnd = new AddSamplesWindow(TrainingSamples,TestSamples, testSFilePath,false);
             ASWnd.Show();
             ASWnd.Owner = this;
             this.IsEnabled = false;
