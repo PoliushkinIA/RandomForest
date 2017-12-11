@@ -5,11 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
-        Title="AnalysisWindow" Height="350" Width="400">
+        Title="AnalysisWindow" Height="400" Width="706.122" Closing="Window_Closing">
     <Grid>
-        <ScrollViewer HorizontalAlignment="Left" Height="299" Margin="77,10,0,0" VerticalAlignment="Top" Width="305" HorizontalScrollBarVisibility="Visible">
-            <Image x:Name="treeImage" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="90"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="279*"/>
+            <ColumnDefinition Width="419*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Margin="10" HorizontalScrollBarVisibility="Visible" Grid.Column="1">
+            <Image x:Name="treeImage" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
         </ScrollViewer>
+        <ComboBox x:Name="treeComboBox" Margin="10,54,10,0" VerticalAlignment="Top" SelectionChanged="treeComboBox_SelectionChanged" Height="22"/>
+        <TextBlock x:Name="textBlock" Margin="10,10,10,0" TextWrapping="Wrap" Text="Select the tree you want to see:" VerticalAlignment="Top" Height="39"/>
+        <TextBlock x:Name="aboutTreTextBox" Margin="10,81,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="82" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        <ComboBox x:Name="samplesComboBox" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="259" SelectionChanged="samplesComboBox_SelectionChanged"/>
+        <ScrollViewer Margin="10,222,10,10" HorizontalScrollBarVisibility="Visible">
+            <Image x:Name="graphImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </ScrollViewer>
+        <ComboBox x:Name="classComboBox" Margin="10,195,10,0" VerticalAlignment="Top" SelectionChanged="classComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>
