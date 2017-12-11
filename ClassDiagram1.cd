@@ -51,7 +51,7 @@
   <Class Name="RandomForest.RForest">
     <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAA=</HashCode>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RForest.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,7 +65,7 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAABAAgBQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAAAAAgBQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SampleExtractor.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -74,6 +74,13 @@
     <TypeIdentifier>
       <HashCode>AACAAACAAAAAAAEAAAAAAAAAAAAAEAAAAABAAAAAAAA=</HashCode>
       <FileName>SamplesContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomForest.C4_5">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAA=</HashCode>
+      <FileName>C4_5.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
