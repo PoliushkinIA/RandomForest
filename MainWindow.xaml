@@ -8,10 +8,10 @@
         Title="Random Forest" Height="263" Width="427">
     <Grid>
 
-        <Button x:Name="ExtractSampleButton" Content="Extract training samples" Margin="10,30,10,0" Click="ExtractSampleButton_Click" Height="20" VerticalAlignment="Top" Background="#FFFFDAF2"/>
-        <TextBlock x:Name="StatusTextBlock" Margin="10,116,10,14" TextWrapping="Wrap" Text="Nothing happens..." Background="#FFDAF2FF"/>
-        <TextBox x:Name="FileNameTextBox" TextWrapping="Wrap" Text="TrainingSamples.txt" Margin="10,55,10,0" ToolTip="Enter the  path of the file, you want to extract training samples from" Height="56" VerticalAlignment="Top"/>
-        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2">
+        <Button x:Name="ExtractSampleButton" Content="Extract training samples" Margin="10,24,10,0" Click="ExtractSampleButton_Click" Height="20" VerticalAlignment="Top" Background="#FFFFDAF2"/>
+        <TextBlock x:Name="StatusTextBlock" Margin="10,110,10,10" TextWrapping="Wrap" Text="Nothing happens..." Background="#FFDAF2FF"/>
+        <TextBox x:Name="FileNameTextBox" TextWrapping="Wrap" Text="TrainingSamples.txt" Margin="10,49,10,0" ToolTip="Enter the  path of the file, you want to extract training samples from" Height="56" VerticalAlignment="Top"/>
+        <Menu Height="19" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Training sample">
                 <MenuItem x:Name="SamplesBrowseMenuItem" Header="Browse" Click="SamplesBrowseMunuItemClick" IsEnabled="False"></MenuItem>
                 <MenuItem x:Name="AddTrainingSampleMenuItem" Header="Add sample" IsEnabled="False" Click="AddSampleMenuItem_Click"></MenuItem>
