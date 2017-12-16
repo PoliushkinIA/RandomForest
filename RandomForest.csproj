@@ -80,6 +80,7 @@
     <Compile Include="BrowseGridWnd.xaml.cs">
       <DependentUpon>BrowseGridWnd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="C4_5.cs" />
     <Compile Include="DecisionWindow.xaml.cs">
       <DependentUpon>DecisionWindow.xaml</DependentUpon>
     </Compile>
