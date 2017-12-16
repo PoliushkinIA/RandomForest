@@ -7,7 +7,7 @@ namespace RandomForest
 {
     public class Leaf : DecisionTree
     {
-        public string classLabel;
+        private string classLabel;
 
         public Leaf(string label)
         {

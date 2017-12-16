@@ -70,7 +70,7 @@ namespace RandomForest
 
         private void extendedAnalysisButton_Click(object sender, RoutedEventArgs e)
         {
-            AnalysisWindow analysisWndInstance = new AnalysisWindow(RForestInstance, TrainingSamples, TestSamples);
+            AnalysisWindow analysisWndInstance = new AnalysisWindow(RForestInstance);
             analysisWndInstance.Owner = this;
             analysisWndInstance.Show();
             this.IsEnabled = false;

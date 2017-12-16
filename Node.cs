@@ -7,8 +7,8 @@ namespace RandomForest
 {
     public class Node : DecisionTree
     {
-        public string attribute;
-        public Dictionary<string, DecisionTree> branches;
+        private string attribute;
+        private Dictionary<string, DecisionTree> branches;
 
         public Node(string attribute)
         {
