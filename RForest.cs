@@ -33,6 +33,7 @@ namespace RandomForest
                 SamplesContainer samplesForTree = new SamplesContainer(selectedSamples);
                 samplesForTree.attributes = attributes;
                 samplesForTree.samplesDomain = samples.samplesDomain;
+
                 trees.Add(TreeInduction(samplesForTree));
             }
         }
