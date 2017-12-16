@@ -52,7 +52,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,9 +76,7 @@
     <Compile Include="AnalysisWindow.xaml.cs">
       <DependentUpon>AnalysisWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BrowseGridWnd.xaml.cs">
-      <DependentUpon>BrowseGridWnd.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="C4_5.cs" />
     <Compile Include="DecisionWindow.xaml.cs">
       <DependentUpon>DecisionWindow.xaml</DependentUpon>
     </Compile>
@@ -98,10 +95,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AnalysisWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BrowseGridWnd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
