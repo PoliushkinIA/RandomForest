@@ -19,7 +19,8 @@
             <MenuItem Header="Test sample">
                 <MenuItem x:Name="LoadTestSampleFromFileMenuItem" Header="Extract from file" IsEnabled="False" Click="LoadTestSampleFromFileMenuItem_Click"></MenuItem>
                 <MenuItem x:Name="LoadTestSamplesManuallyMenuItem" Header="Add manually" IsEnabled="False" Click="LoadTestSamplesManuallyMenuItem_Click"></MenuItem>
-                <MenuItem x:Name="BrowseTestSamplesMenuItem" Header="Browse" IsEnabled="False" Click="BrowseTestSamplesMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="BrowseTestSamplesMenuItem" Header="Browse separately" IsEnabled="False" Click="BrowseTestSamplesMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="BrowseGridTestSamplesMenuItem" Header="Browse grid" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="Results" >
                 <MenuItem x:Name="VerdictMenuItem" Header="Verdict" IsEnabled="False" Click="VerdictMenuItem_Click"></MenuItem>
