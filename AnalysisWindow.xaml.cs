@@ -24,7 +24,8 @@ namespace RandomForest
         RForest rForest;
         SamplesContainer TrainingSamples;
         SamplesContainer TestSamples;
-        BitmapImage curBitmapImage;
+        BitmapImage curTreeBitmapImage;
+        BitmapImage curGraphBitmapImage;
         public AnalysisWindow(RForest rForestInstance, SamplesContainer TrainingSamples, SamplesContainer TestSamples)
         {
             rForest = rForestInstance;
@@ -32,7 +33,7 @@ namespace RandomForest
             this.TestSamples = TestSamples;
             InitializeComponent();
             DrawTree(0);
-
+            graphScrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
             List<int> numbersList = new List<int>();
             for (int i = 0; i < rForestInstance.trees.Count; i++)
                 numbersList.Add(i);
@@ -46,6 +47,7 @@ namespace RandomForest
             classComboBox.SelectedIndex = 0;
 
             DrawComparsion(TestSamples.samplesList[samplesComboBox.SelectedIndex]);
+
         }
 
         public void DrawTree(int index)
@@ -68,8 +70,8 @@ namespace RandomForest
             treeOutput(g, tree, posLst, 0, 0, 0, offsLst, treeWidth, "");
             g.Dispose();
 
-            curBitmapImage = BitmapToImageSource(treeBitMap);
-            treeImage.Source = curBitmapImage;
+            curTreeBitmapImage = BitmapToImageSource(treeBitMap);
+            treeImage.Source = curTreeBitmapImage;
         }
 
         void DrawComparsion(Sample sample)
@@ -80,11 +82,12 @@ namespace RandomForest
                 treesDecisions.Add(tree.Decide(sample));
             }
             
-            Bitmap graphBitMap = new Bitmap(300,100);
+            Bitmap graphBitMap = new Bitmap(treesDecisions.Count*5,100);
             Graphics g = Graphics.FromImage(graphBitMap);
-            g.FillRegion(new SolidBrush(System.Drawing.Color.WhiteSmoke), new Region(new System.Drawing.Rectangle(0, 0, 300,100)));
+            g.FillRegion(new SolidBrush(System.Drawing.Color.WhiteSmoke), new Region(new System.Drawing.Rectangle(0, 0, treesDecisions.Count * 5, 100)));
 
             SolidBrush myBrush = new SolidBrush(System.Drawing.Color.Red);
+            System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.Black);
 
             int width = graphBitMap.Width / treesDecisions.Count;
             for(int i = 1;i<=treesDecisions.Count;i++)
@@ -93,10 +96,21 @@ namespace RandomForest
 
                     g.FillRectangle(myBrush, (i-1)*width, graphBitMap.Height - (float)(graphBitMap.Height)*(float)(percent), i * width, (float)graphBitMap.Height * (float)percent);
                 }
-
+            for(int i = 1; i<= (int)(treesDecisions.Count/5) - 1; i++)
+            {
+                int x = (int)(graphBitMap.Width * (float)(i / ((float)(treesDecisions.Count / 5))));
+                g.DrawLine(myPen, x, graphBitMap.Height *0.9F, x, graphBitMap.Height - 1);
+            }
+            g.DrawLine(myPen, 0, 0, graphBitMap.Width, 0);
+            g.DrawLine(myPen, 0, 0, 0, graphBitMap.Height);
+            g.DrawLine(myPen, graphBitMap.Width-1, 0, graphBitMap.Width-1, graphBitMap.Height);
+            g.DrawLine(myPen, 0, graphBitMap.Height-1, graphBitMap.Width, graphBitMap.Height-1);
             myBrush.Dispose();
+            myPen.Dispose();
             g.Dispose();
-            graphImage.Source = BitmapToImageSource(graphBitMap);
+            curGraphBitmapImage = BitmapToImageSource(graphBitMap);
+            graphImage.Source = curGraphBitmapImage;
+            graphInfoTextBlock.Text = "The number of votes depending on the size of the forest(1-"+treesDecisions.Count+"):";
         }
 
         void treeInfo(DecisionTree node, int level, List<int> curLst)
@@ -216,14 +230,26 @@ namespace RandomForest
 
         private void changeTheScaleButton_Click(object sender, RoutedEventArgs e)
         {
-            treeImage.Width = curBitmapImage.Width;
-            treeImage.Height = curBitmapImage.Height;
+            treeImage.Width = curTreeBitmapImage.Width;
+            treeImage.Height = curTreeBitmapImage.Height;
         }
 
         private void sczledSizeButton_Click(object sender, RoutedEventArgs e)
         {
             treeImage.Width = scrollViewer.ActualWidth;
             treeImage.Height = scrollViewer.ActualHeight;
+        }
+
+        private void natSizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            graphImage.Width = curGraphBitmapImage.Width;
+            graphImage.Height = 100;
+        }
+
+        private void scSizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            graphImage.Width = graphScrollViewer.ActualWidth;
+            graphImage.Height = 100;
         }
     }
 }
