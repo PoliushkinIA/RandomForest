@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
-        Title="AnalysisWindow" Height="400" Width="706.122" Closing="Window_Closing">
+        Title="AnalysisWindow" Height="456.51" Width="706.122" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="279*"/>
             <ColumnDefinition Width="419*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Margin="10" HorizontalScrollBarVisibility="Visible" Grid.Column="1">
+        <ScrollViewer x:Name="scrollViewer" Margin="10,35,10,10" HorizontalScrollBarVisibility="Visible" Grid.Column="1">
             <Image x:Name="treeImage" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
         </ScrollViewer>
         <ComboBox x:Name="treeComboBox" Margin="10,54,10,0" VerticalAlignment="Top" SelectionChanged="treeComboBox_SelectionChanged" Height="22"/>
@@ -22,6 +22,8 @@
             <Image x:Name="graphImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </ScrollViewer>
         <ComboBox x:Name="classComboBox" Margin="10,195,10,0" VerticalAlignment="Top" SelectionChanged="classComboBox_SelectionChanged"/>
+        <Button x:Name="changeTheScaleButton" Content="Natural size" Grid.Column="1" Margin="10,10,0,0" VerticalAlignment="Top" Click="changeTheScaleButton_Click" HorizontalAlignment="Left" Width="191"/>
+        <Button x:Name="sczledSizeButton" Content="Scaled size" Grid.Column="1" Margin="215,10,10,0" VerticalAlignment="Top" Click="sczledSizeButton_Click"/>
 
     </Grid>
 </Window>

@@ -24,6 +24,7 @@ namespace RandomForest
         RForest rForest;
         SamplesContainer TrainingSamples;
         SamplesContainer TestSamples;
+        BitmapImage curBitmapImage;
         public AnalysisWindow(RForest rForestInstance, SamplesContainer TrainingSamples, SamplesContainer TestSamples)
         {
             rForest = rForestInstance;
@@ -67,8 +68,8 @@ namespace RandomForest
             treeOutput(g, tree, posLst, 0, 0, 0, offsLst, treeWidth, "");
             g.Dispose();
 
-
-            treeImage.Source = BitmapToImageSource(treeBitMap);
+            curBitmapImage = BitmapToImageSource(treeBitMap);
+            treeImage.Source = curBitmapImage;
         }
 
         void DrawComparsion(Sample sample)
@@ -211,6 +212,18 @@ namespace RandomForest
         private void classComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DrawComparsion(TestSamples.samplesList[samplesComboBox.SelectedIndex]);
+        }
+
+        private void changeTheScaleButton_Click(object sender, RoutedEventArgs e)
+        {
+            treeImage.Width = curBitmapImage.Width;
+            treeImage.Height = curBitmapImage.Height;
+        }
+
+        private void sczledSizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            treeImage.Width = scrollViewer.ActualWidth;
+            treeImage.Height = scrollViewer.ActualHeight;
         }
     }
 }
