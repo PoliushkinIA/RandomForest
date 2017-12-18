@@ -56,6 +56,8 @@ namespace RandomForest
                 samplesComboBox.IsEnabled = false;
                 classComboBox.IsEnabled = false;
                 graphScrollViewer.IsEnabled = false;
+                natSizeButton.IsEnabled = false;
+                scSizeButton.IsEnabled = false;
             }
 
         }
