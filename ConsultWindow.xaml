@@ -5,15 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomForest"
         mc:Ignorable="d"
-        Title="ConsultWindow" Height="300" Width="300">
+        Title="ConsultWindow" Height="300" Width="300" Loaded="Window_Loaded">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" FlowDirection="RightToLeft">
-            <Button x:Name="cancelButton" Content="Cancel" Margin="5" MinWidth="50"/>
-            <Button x:Name="okButton" Content="OK" Margin="5" MinWidth="50"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" FlowDirection="RightToLeft" Grid.ColumnSpan="3">
+            <Button x:Name="cancelButton" Content="Cancel" Margin="5" MinWidth="50" Click="cancelButton_Click"/>
+            <Button x:Name="okButton" Content="OK" Margin="5" MinWidth="50" Click="okButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label Content="Choose value for attribute"/>
+            <Label x:Name="attributeName"/>
+            <ListBox x:Name="attributeValue"/>
         </StackPanel>
     </Grid>
 </Window>

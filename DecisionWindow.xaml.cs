@@ -19,9 +19,9 @@ namespace RandomForest
     /// </summary>
     public partial class DecisionWindow : Window
     {
-        SamplesContainer TrainingSamples;
+        public SamplesContainer TrainingSamples;
         SamplesContainer TestSamples;
-        RForest RForestInstance;
+        public RForest RForestInstance;
         public DecisionWindow(SamplesContainer TrainingSamples, SamplesContainer TestSamples)
         {
             InitializeComponent();
