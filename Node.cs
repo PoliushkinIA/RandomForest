@@ -37,5 +37,10 @@ namespace RandomForest
         {
             return branches[sample.Atributes[attribute]].Decide(sample);
         }
+
+        public DecisionTree Decide(string value)
+        {
+            return branches[value];
+        }
     }
 }

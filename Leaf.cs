@@ -30,5 +30,10 @@ namespace RandomForest
         {
             return classLabel;
         }
+
+        public string Decide()
+        {
+            return classLabel;
+        }
     }
 }

@@ -44,6 +44,7 @@ namespace RandomForest
                 AddTrainingSampleMenuItem.IsEnabled = true;
                 LoadTestSampleFromFileMenuItem.IsEnabled = true;
                 BrowseGridTrainingSamplesMenuItem.IsEnabled = true;
+                VerdictMenuItem.IsEnabled = true;
             }
         }
 

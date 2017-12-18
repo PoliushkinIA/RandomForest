@@ -25,8 +25,13 @@ namespace RandomForest
         public DecisionWindow(SamplesContainer TrainingSamples, SamplesContainer TestSamples)
         {
             InitializeComponent();
-            sampleComboBox.ItemsSource = TestSamples.samplesList.Select(p => p.SampleName).ToList();
-            sampleComboBox.SelectedIndex = 0;
+            if (TestSamples != null)
+            {
+                sampleComboBox.ItemsSource = TestSamples.samplesList.Select(p => p.SampleName).ToList();
+                sampleComboBox.SelectedIndex = 0;
+            }
+            else
+                sampleComboBox.IsEnabled = false;
             this.TrainingSamples = TrainingSamples;
             this.TestSamples = TestSamples;
         }
@@ -64,7 +69,8 @@ namespace RandomForest
         {
             RForestInstance = new RForest(TrainingSamples, Convert.ToInt32(treesNumTextBox.Text));
             processingStatusTextBlock.Text = "The forest awaits instructions.";
-            processDecisionButton.IsEnabled = true;
+            if (TestSamples != null)
+                processDecisionButton.IsEnabled = true;
             extendedAnalysisButton.IsEnabled = true;
         }
 
