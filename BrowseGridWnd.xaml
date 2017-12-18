@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="BrowseGridWnd" Height="300" Width="300">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid" Margin="5,5,5,5" IsReadOnly="True"/>
 
     </Grid>
 </Window>

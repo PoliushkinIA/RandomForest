@@ -43,6 +43,7 @@ namespace RandomForest
                 SamplesBrowseMenuItem.IsEnabled = true;
                 AddTrainingSampleMenuItem.IsEnabled = true;
                 LoadTestSampleFromFileMenuItem.IsEnabled = true;
+                BrowseGridTrainingSamplesMenuItem.IsEnabled = true;
             }
         }
 
@@ -101,6 +102,13 @@ namespace RandomForest
             DWnd.Show();
             DWnd.Owner = this;
             this.IsEnabled = false;
+        }
+
+        private void BrowseGridTrainingSamplesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            BrowseGridWnd BWnd = new BrowseGridWnd(TrainingSamples);
+            BWnd.Show();
+            BWnd.Owner = this;
         }
     }
 }
