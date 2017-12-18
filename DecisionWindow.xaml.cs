@@ -72,6 +72,7 @@ namespace RandomForest
             if (TestSamples != null)
                 processDecisionButton.IsEnabled = true;
             extendedAnalysisButton.IsEnabled = true;
+            consultButton.IsEnabled = true;
         }
 
         private void extendedAnalysisButton_Click(object sender, RoutedEventArgs e)
@@ -80,6 +81,13 @@ namespace RandomForest
             analysisWndInstance.Owner = this;
             analysisWndInstance.Show();
             this.IsEnabled = false;
+        }
+
+        private void consultButton_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultWindow consultWindow = new ConsultWindow();
+            consultWindow.Owner = this;
+            consultWindow.ShowDialog();
         }
     }
 }
