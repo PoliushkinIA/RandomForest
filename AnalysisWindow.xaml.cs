@@ -40,13 +40,23 @@ namespace RandomForest
             treeComboBox.ItemsSource = numbersList;
             treeComboBox.SelectedIndex = 0;
 
-            samplesComboBox.ItemsSource = TestSamples.samplesList.Select(p => p.SampleName).ToList();
-            samplesComboBox.SelectedIndex = 0;
+            if (TestSamples != null)
+            {
+                samplesComboBox.ItemsSource = TestSamples.samplesList.Select(p => p.SampleName).ToList();
+                samplesComboBox.SelectedIndex = 0;
 
-            classComboBox.ItemsSource = TrainingSamples.classLabels;
-            classComboBox.SelectedIndex = 0;
+                classComboBox.ItemsSource = TrainingSamples.classLabels;
+                classComboBox.SelectedIndex = 0;
 
-            DrawComparsion(TestSamples.samplesList[samplesComboBox.SelectedIndex]);
+                DrawComparsion(TestSamples.samplesList[samplesComboBox.SelectedIndex]);
+            }
+            else
+            {
+                graphInfoTextBlock.Text = "To view the voting schedule, you need to import a test sample before.";
+                samplesComboBox.IsEnabled = false;
+                classComboBox.IsEnabled = false;
+                graphScrollViewer.IsEnabled = false;
+            }
 
         }
 
