@@ -81,6 +81,9 @@
       <DependentUpon>BrowseGridWnd.xaml</DependentUpon>
     </Compile>
     <Compile Include="C4_5.cs" />
+    <Compile Include="ConsultWindow.xaml.cs">
+      <DependentUpon>ConsultWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DecisionWindow.xaml.cs">
       <DependentUpon>DecisionWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BrowseGridWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConsultWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
